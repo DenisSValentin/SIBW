@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <!-- En el head pongo título a la página y la uno con el archivo CSS -->
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block titulo %}SIBW{% endblock %}</title>
+        {% block css %}LINK AL CSS{% endblock %}
+        <script src="js/codigos.js" defer></script>
+    </head>
+
+    <!-- En el body tengo todo lo que será visto por el usuario, estructurado de forma clara -->
+    <body>
+         <div class="grid-general"> <!-- Creo un grid general donde voy a organizar la estructura de mi página -->
+
+            <!-- Mi item1 hace referencia a la cabecera y lo que haya en ella -->
+            <header class="item1">
+                <img id="logo" src="imgs/Logo.avif" alt="Logo"> <!-- Importo el logo -->
+                <h1 id="cabecera">CIENTÍFICOS RECONOCIDOS</h1> <!-- Y pongo una cabecera a mi página -->
+            </header>
+            
+            <!-- Mi item2 hace referencia a mi menú (no tiene mucha utilidad de momento) -->
+            <nav class="item2">
+                <a href="index.php">INICIO</a>
+                <a href="registrarse.php">REGISTRARSE</a>
+                <a href="login.php">INICIAR SESION</a>
+                <a href="logout.php">CERRAR SESION</a> <!-- esto seria meterlo ya dentro de un usuario iniciado sesion -->
+            </nav>
+        
+            <div class="item3">
+                {% block item3 %}
+                    <p>Contenido Bloque Principal</p>
+                {% endblock %}
+            </div>
+
+            <aside class="item4">
+                {% block item4 %}
+                    <p>Menu lateral</p>
+                {% endblock %}
+            </aside>
+
+           <!-- Mi item5 es mi pie de página donde aparece mi nombre, el año en el que estamos y un signo de copyright -->
+            <footer class="item5">
+                <p>&copy 2023 - Denis Valentin Stoyanov D'Antonio</p>
+            </footer>
+
+        </div>
+    </body>
+
+</html>

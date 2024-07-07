@@ -1,0 +1,284 @@
+/*
+    Empiezo dándole un color de fondo a todo, así como
+    eliminar márgenes para que esté pegado a los extremos
+    de la página.
+*/
+body{
+    background-color: #8ce4e7;
+    margin: 0;
+}
+
+/*
+    Aquí creo toda la estructura de mi página gracias a grid
+    y grid-template-areas, donde defino la estructura y cuánto
+    van a ocupar y después simplemente le asigno ese atributo
+    a cada una de las clases que se corresponden.
+*/
+.grid-general{
+    display: grid;
+    grid-template-areas: 
+        'cabecera cabecera'
+        'navegacion navegacion'
+        'cuerpo auxiliar'
+        'footer footer';
+    grid-template-rows: 20% 15% auto 10%;
+    grid-template-columns: 70% auto;
+}
+
+/*
+    Como mi item1 corresponde a la cabecera he hecho que todos
+    sus elementos estén centrados en el centro y además tenga
+    un fondo azul marino.
+*/
+.item1{
+    grid-area: cabecera;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(18, 5, 71);
+    word-break: break-word;
+}
+
+/*
+    Uno de los dos elementos de la cabecera es el logo, al cual
+    le he ajustado el tamaño, márgenes y su contorno curvo.
+*/
+.item1 #logo{
+    margin-right: 1.5rem;
+    width: 4rem;
+    padding: 0.25rem;
+    border-radius: 10%;
+}
+
+/*
+    El segundo elemento es la cabecera, la cual coloco en el centro
+    con un color blanco.
+*/
+.item1 #cabecera{
+    text-align: center;
+    color: white;
+}
+
+/*
+    El item2 es la barra de navegación, en la cual he distribuido
+    uniformemente sus componentes y pongo un borde inferior para
+    separarlo del cuerpo general.
+*/
+.item2{
+    grid-area: navegacion;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(18, 5, 71);
+    border-bottom: 0.5rem solid black;
+}
+
+/*
+    Pongo los enlaces de color blanco y les aumento el tamaño,
+    así como ponerles un margen alrededor.
+*/
+.item2 a{
+    color: white;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+/*
+    Mi item3 esta vez no es un grid, sino que he organizado la
+    inforamción en formato flex utilizando bastantes clases.
+*/
+.item3{
+    grid-area: cuerpo;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*
+    Hago que el texto general sea en formato columna, de arriba
+    hacia abajo.
+*/
+.texto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*
+    El nombre del científico con su tamaño y márgenes.
+*/
+.nombre{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-left: 16px;
+}
+  
+/*
+    La fecha de nacimiento (y defuncion si procede) del
+    científico, así como su ciudad con su tamaño y márgenes.
+*/
+.fechas-ciudad{
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 16px;
+}
+
+/*
+    Hago que los párrafos con la información del científico
+    estén justificados y tengan margen con el nombre y fechas.
+*/
+.parrafos{
+    margin-top: 13px;
+    text-align: justify;
+}
+
+/*
+    Añado márgenes entre los párrafos y con el extremo izquierdo
+    de la página.
+*/
+.parrafos p{
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+
+/*
+    Añado los enlaces a las utilidades como FB, TW y el botón IMPRIMIR.
+*/
+.enlaces{
+    margin-top: 32px;
+    margin-left: 16px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/*
+    A los enlaces les pongo una fuente y color, además de márgenes.
+*/
+.enlace{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-right: 16px;
+}
+
+/*
+    Ubico las fotografías en la parte derecha.
+*/
+.fotos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/*
+    Pongo márgenes y padding a las fotos.
+*/
+.imagen{
+    padding: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+/*
+    Hago que ambas fotos sean 150px*150px.
+*/
+#FotoSt1, #FotoSt2{
+    width: 150px;
+    height: 150px;
+}
+
+/*
+    Le pongo un margen a los comentarios.
+*/
+#comentarios{
+    margin: 15px;
+}
+
+/*
+    Le pongo un margen a todo el contenedor.
+*/
+#contenedor-opiniones{
+    display: none;
+    margin: 15px;
+}
+
+/*
+    Hago que el texto de las opiniones esté
+    justificado y también tenga su propio margen.
+*/
+.opiniones{
+    display: flex;
+    text-align: justify;
+    margin: 15px;
+}
+
+/*
+    En mis elementos auxiliares hago que la distribución sea flex en
+    columna, es decir, hacia abajo.
+*/
+.item4{
+    grid-area: auxiliar;
+    display: flex;
+    border-left: 0.5rem solid black;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #38d8dd;
+}
+
+/*
+    La cabecera la sitúo en la parte superior centrada.
+*/
+.item4 #cabeceraAuxiliares{
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    word-break: break-word;
+}
+
+/*
+    Y todos los párrafos los pongo uno debajo del otro en formato
+    justificado, además de un padding para separarlo de los bordes.
+*/
+.item4 p{
+    padding: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: justify;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/*
+    A todos los enlaces los centro también y les pongo que sean de 
+    color negro en vez de azul/morado que es lo habitual.
+*/
+.item4 a{
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+    color: black;
+    font-weight: bold;
+}
+
+#seccionOpiniones{
+    display: none;
+}
+
+/*
+    Mi pie de página lo alineo en el centro con la letra de color blanco.
+*/
+.item5{
+    grid-area: footer;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    height: auto;
+}

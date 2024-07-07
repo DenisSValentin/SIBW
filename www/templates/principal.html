@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+    {% block titulo %}
+        Científicos de Denis
+    {% endblock %}
+
+    {% block css %}
+        <link href="css/estilo.css" rel="stylesheet" type="text/css" />
+    {% endblock %}
+
+    {% block item3 %}
+        {% block eventos %}{% endblock %}
+        
+    <!-- Mi item3 contiene todo lo relacionado a la "página principal" que es donde aparecen los científicos -->
+        {% for cientifico in cientificos %}
+            <div class="cientifico">
+                <a href="cientifico.php?scid={{ cientifico.id }}" target="_blank"><img src="{{ cientifico.imagen }}" alt="Foto{{ cientifico.id }}"></a>
+                <p>{{ cientifico.nombre }}</p>
+            </div>
+         {% endfor %}
+
+    {% endblock %}
+            
+    {% block item4 %}
+    <!-- Mi item4 son los elementos auxiliares, en los cuales he puesto enlaces de interés, sobre todo referente a premios nobel de ciencia -->
+        <h2 id="cabeceraAuxiliares">ENLACES DE INTERÉS</h2>
+        <p>
+            Aquí se muestran enlaces de interés que pueden serle
+            útiles si desea informarse más sobre la ciencia u
+            otros científicos.
+        </p>
+        <a href="https://es.wikipedia.org/wiki/Anexo:Ganadores_del_Premio_Nobel_de_F%C3%ADsica" target="_blank">GANADORES PREMIOS NOBEL DE FÍSICA</a>
+        <a href="https://es.wikipedia.org/wiki/Anexo:Ganadores_del_Premio_Nobel_de_Qu%C3%ADmica" target="_blank">GANADORES PREMIOS NOBEL DE QUÍMICA</a>
+        <a href="https://es.wikipedia.org/wiki/Anexo:Ganadores_del_Premio_Nobel_de_Fisiolog%C3%ADa_o_Medicina" target="_blank">GANADORES PREMIOS NOBEL DE MEDICINA</a>
+        <p>
+            Así mismo, si quiere conocer más científicos relevantes,
+            puede visitar la siguiente página web.
+        </p>
+        <a href="https://psicologiaymente.com/cultura/cientificos-mas-famosos-historia" target="_blank">LOS 30 CIENTÍFICOS MÁS FAMOSOS DE LA HISTORIA</a>
+    {% endblock %}

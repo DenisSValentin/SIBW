@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+    {% block titulo %}
+        {{ parent() }} - {{ cientifico.nombre }}
+    {% endblock %}
+
+    {% block css %}
+        <link href="css/estiloCientifico.css" rel="stylesheet" type="text/css" />
+    {% endblock %}
+    
+    {% block item3 %}
+    <!-- Mi item3 contiene todo lo relacionado a la "página principal" que es donde aparece la información del científico,
+        así como fotografías suyas y diversos links con funciones varias -->
+        <div class="texto"> <!-- En la clase texto que es donde englobo todo, creo clases para cada uno de los apartados relevantes -->
+            <div class="nombre">{{ cientifico.nombre }}</div>
+            <div class="fechas-ciudad">{{ cientifico.nacimiento }}/{{ cientifico.muerte }} - {{ cientifico.ciudad }}, {{ cientifico.pais }}</div>
+            <div class="parrafos">
+                <p> {{ cientifico.texto }} </p>
+            </div>
+            <div class="enlaces"> <!-- Las utilidades que se nos pide, como FB, TW y el botón de IMRPIMIR -->
+                <a href="https://es-es.facebook.com/" target="_blank" class="enlace">FB</a>
+                <a href="https://twitter.com/" target="_blank" class="enlace">TW</a>
+                <a href="cientifico_imprimir.php?scid={{ cientifico.id }}" target="_blank" class="enlace">IMPRIMIR</a>
+            </div>
+        </div>
+            <div class="fotos"> <!-- Así como dos fotos del científico -->
+            <div class="imagen">
+                <img id="FotoSt1" src="{{ fotos[0]['imagen1'] }}" alt="Foto1">
+            </div>
+            <div class="imagen">
+                <img id="FotoSt2" src="{{ fotos[0]['imagen2'] }}" alt="Foto2">
+            </div>
+            </div>
+            <button type="button" class="boton" id="comentarios" onclick="mostrarOpiniones()">Comentarios</button>
+            <section id="seccionOpiniones"> {{ palabrasProhibi|json_encode|raw }} </section>
+                <div id="contenedor-opiniones">
+                    <p class="opiniones" id="op1">
+                        {% for comentario in comentarios %}
+                            Autor: {{ comentario.autor }} <br/>
+                            Fecha: {{ comentario.fecha }} <br/>
+                            Hora:  {{ comentario.hora }} <br/>
+                            {{ comentario.comentario }} <br/> <br/>
+                        {% endfor %}
+                    </p>
+                    <div id="comentarios-nuevos"></div>
+                    <form id="formulario">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre"><br>
+                    
+                        <label for="correo">Correo:</label>
+                        <input type="text" id="correo" name="correo"><br>
+                    
+                        <label for="comentario">Comentario:</label><br>
+                        <textarea id="comentario" name="comentario"></textarea><br>
+                    
+                        <button type="submit">Enviar</button>
+                    </form>       
+                </div>
+    {% endblock %}
+
+    {% block item4 %}
+        <!-- Mi item4 son los elementos auxiliares, en los cuales he puesto enlaces de interés, como sus logros o su wikipedia por si alguien quiere profundizar más -->
+        <h2 id="cabeceraAuxiliares">ENLACES DE INTERÉS</h2>
+        <p>
+            {{ cosasInteres[0]['descripcionInteres1'] }}
+        </p>
+        <a href="{{ cosasInteres[0]['enlaceInt1'] }}" target="_blank">{{ cosasInteres[0]['descripcionInt1'] }}</a>
+        <a href="{{ cosasInteres[0]['enlaceInt2'] }}" target="_blank">{{ cosasInteres[0]['descripcionInt2'] }}</a>
+        <p>
+            {{ cosasInteres[0]['descripcionInteres2'] }}
+        </p>
+        <a href="{{ cosasInteres[0]['enlaceInt3'] }}" target="_blank">{{ cosasInteres[0]['descripcionInt3'] }}</a>
+    {% endblock %}
+
+    
